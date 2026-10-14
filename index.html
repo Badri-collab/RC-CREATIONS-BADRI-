@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RC Creations Badri</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.6;
+}
+
+header {
+    background: #101010;
+    color: white;
+    padding: 15px;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5b532;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.brand span {
+    color: #e5b532;
+}
+
+nav {
+    background: #1c1c1c;
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+nav button {
+    background: transparent;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+nav button:hover {
+    background: #e5b532;
+    color: black;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 22px;
+}
+
+h2.section-title {
+    font-size: 23px;
+    margin: 25px 0 15px;
+    border-left: 4px solid #d5a51f;
+    padding-left: 12px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.category {
+    background: #171717;
+    color: white;
+    padding: 17px 10px;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.category:hover {
+    border-color: #d5a51f;
+    color: #e5b532;
+}
+
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.post {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 7px #0000000c;
+}
+
+.post img {
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+    background: #171717;
+}
+
+.post-content {
+    padding: 14px;
+}
+
+.tag {
+    display: inline-block;
+    background: #fff3cd;
+    color: #765500;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.post h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.post p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: #171717;
+    color: white;
+    padding: 9px 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #d5a51f;
+    color: black;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #805e00;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.article {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.article h1 {
+    margin-bottom: 12px;
+}
+
+.article p {
+    margin: 12px 0;
+    color: #555;
+}
+
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.download-links a {
+    background: #171717;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.download-links a:hover {
+    background: #d5a51f;
+    color: black;
+}
+
+footer {
+    background: #101010;
+    color: #bbb;
+    text-align: center;
+    padding: 25px 12px;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    .brand {
+        font-size: 17px;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .post-list {
+        grid-template-columns: 1fr;
+    }
+
+    .post img {
+        height: 200px;
+    }
+
+    .banner {
+        max-height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <img src="logo.jpg" class="logo"
+             alt="RC Creations Badri Logo">
+
+        <div class="brand">
+            RC CREATIONS <span>BADRI</span>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('alight')">Alight Motion</button>
+    <button onclick="showPage('capcut')">CapCut</button>
+    <button onclick="showPage('presets')">Presets & XML</button>
+    <button onclick="showPage('tutorials')">Tutorials</button>
+</nav>
+
+<!-- HOME PAGE -->
+
+<section id="home" class="page active">
+<div class="container">
+
+    <img src="banner.jpg" class="banner"
+         alt="RC Creations Badri Banner">
+
+    <h2 class="section-title">Welcome to RC Creations Badri</h2>
+
+    <p>
+        Find video editing projects, presets, XML files,
+        CapCut templates and editing tutorials here.
+    </p>
+
+    <h2 class="section-title">Categories</h2>
+
+    <div class="categories">
+        <div class="category"
+             onclick="showPage('alight')">
+            🎬 Alight Motion
+        </div>
+
+        <div class="category"
+             onclick="showPage('capcut')">
+            ✂️ CapCut Templates
+        </div>
+
+        <div class="category"
+             onclick="showPage('presets')">
+            📁 Presets & XML Files
+        </div>
+
+        <div class="category"
+             onclick="showPage('tutorials')">
+            ▶ Video Tutorials
+        </div>
+    </div>
+
+    <h2 class="section-title">Latest Posts</h2>
+
+    <div class="post-list">
+
+        <article class="post">
+            <img src="banner.jpg" alt="Alight Motion Project">
+            <div class="post-content">
+                <span class="tag">ALIGHT MOTION</span>
+                <h3>Alight Motion Project 01</h3>
+                <p>Add your project description here.</p>
+                <button class="btn"
+                        onclick="showPage('post1')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+
+        <article class="post">
+            <img src="banner.jpg" alt="CapCut Template">
+            <div class="post-content">
+                <span class="tag">CAPCUT</span>
+                <h3>CapCut Template 01</h3>
+                <p>Add your template details here.</p>
+                <button class="btn"
+                        onclick="showPage('post2')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+
+        <article class="post">
+            <img src="banner.jpg" alt="XML Preset">
+            <div class="post-content">
+                <span class="tag">PRESETS & XML</span>
+                <h3>Preset / XML File 01</h3>
+                <p>Add your preset information here.</p>
+                <button class="btn"
+                        onclick="showPage('post3')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+
+        <article class="post">
+            <img src="banner.jpg" alt="Editing Tutorial">
+            <div class="post-content">
+                <span class="tag">TUTORIALS</span>
+                <h3>Video Editing Tutorial 01</h3>
+                <p>Add your tutorial description here.</p>
+                <button class="btn"
+                        onclick="showPage('post4')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- ALIGHT MOTION CATEGORY -->
+
+<section id="alight" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('home')">
+        ← Back to Home
+    </span>
+
+    <h2 class="section-title">Alight Motion Projects</h2>
+
+    <div class="post-list">
+        <article class="post">
+            <img src="banner.jpg" alt="Project 01">
+            <div class="post-content">
+                <h3>Alight Motion Project 01</h3>
+                <p>Project details and download link.</p>
+                <button class="btn" onclick="showPage('post1')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<!-- CAPCUT CATEGORY -->
+
+<section id="capcut" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('home')">
+        ← Back to Home
+    </span>
+
+    <h2 class="section-title">CapCut Templates</h2>
+
+    <div class="post-list">
+        <article class="post">
+            <img src="banner.jpg" alt="CapCut Template 01">
+            <div class="post-content">
+                <h3>CapCut Template 01</h3>
+                <p>Template details and link.</p>
+                <button class="btn" onclick="showPage('post2')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<!-- PRESETS CATEGORY -->
+
+<section id="presets" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('home')">
+        ← Back to Home
+    </span>
+
+    <h2 class="section-title">Presets & XML Files</h2>
+
+    <div class="post-list">
+        <article class="post">
+            <img src="banner.jpg" alt="XML Preset">
+            <div class="post-content">
+                <h3>Preset / XML File 01</h3>
+                <p>Preset information and download.</p>
+                <button class="btn" onclick="showPage('post3')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<!-- TUTORIALS CATEGORY -->
+
+<section id="tutorials" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('home')">
+        ← Back to Home
+    </span>
+
+    <h2 class="section-title">Video Editing Tutorials</h2>
+
+    <div class="post-list">
+        <article class="post">
+            <img src="banner.jpg" alt="Tutorial 01">
+            <div class="post-content">
+                <h3>Editing Tutorial 01</h3>
+                <p>Learn video editing techniques.</p>
+                <button class="btn" onclick="showPage('post4')">
+                    Read More →
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<!-- INDIVIDUAL POST PAGES -->
+
+<section id="post1" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('alight')">
+        ← Back to Alight Motion
+    </span>
+
+    <div class="article">
+        <h1>Alight Motion Project 01</h1>
+        <p>Add your project description here.</p>
+
+        <div class="download-links">
+            <a href="YOUR_ALIGHT_MOTION_LINK"
+               target="_blank" rel="noopener">
+                Open Project / Download
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="post2" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('capcut')">
+        ← Back to CapCut
+    </span>
+
+    <div class="article">
+        <h1>CapCut Template 01</h1>
+        <p>Add your CapCut template details here.</p>
+
+        <div class="download-links">
+            <a href="YOUR_CAPCUT_LINK"
+               target="_blank" rel="noopener">
+                Open CapCut Template
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="post3" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('presets')">
+        ← Back to Presets
+    </span>
+
+    <div class="article">
+        <h1>Preset / XML File 01</h1>
+        <p>Add your preset information here.</p>
+
+        <div class="download-links">
+            <a href="YOUR_PRESET_LINK"
+               target="_blank" rel="noopener">
+                Download Preset / XML
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="post4" class="page">
+<div class="container">
+    <span class="back" onclick="showPage('tutorials')">
+        ← Back to Tutorials
+    </span>
+
+    <div class="article">
+        <h1>Video Editing Tutorial 01</h1>
+        <p>Add your tutorial description here.</p>
+
+        <div class="download-links">
+            <a href="YOUR_TUTORIAL_LINK"
+               target="_blank" rel="noopener">
+                Watch Tutorial
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<footer>
+    <p>© 2026 RC CREATIONS BADRI</p>
+    <p>Video Editing | Alight Motion | CapCut | Presets</p>
+</footer>
+
+<script>
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+
+    pages.forEach(function(page) {
+        page.classList.remove('active');
+    });
+
+    const selectedPage = document.getElementById(pageId);
+
+    if (selectedPage) {
+        selectedPage.classList.add('active');
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
